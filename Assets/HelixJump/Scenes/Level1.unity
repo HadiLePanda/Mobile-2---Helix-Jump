@@ -564,6 +564,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1423159529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1423159530}
+  - component: {fileID: 1423159531}
+  - component: {fileID: 1423159532}
+  m_Layer: 0
+  m_Name: Ads
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1423159530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423159529}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423159531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423159529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc97dffb66a030b48ad454cae0403384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidGameId: 5711577
+  _iOSGameId: 5711576
+  _testMode: 1
+--- !u!114 &1423159532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423159529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 170533e61843cbe43b83adbcd8f786ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidAdUnitId: Interstitial_Android
+  _iOsAdUnitId: Interstitial_iOS
 --- !u!4 &1473451450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5157980840625282008, guid: 50328e75c685d86458359c0ac7ceb00d, type: 3}
@@ -598,6 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a383defa8b5d1aa4c9f662ecfc4a1097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triesBeforeShowingAd: 3
 --- !u!4 &1509235267
 Transform:
   m_ObjectHideFlags: 0
@@ -1304,6 +1367,7 @@ SceneRoots:
   - {fileID: 481508207}
   - {fileID: 1712423594}
   - {fileID: 1509235267}
+  - {fileID: 1423159530}
   - {fileID: 1829563447}
   - {fileID: 963194228}
   - {fileID: 1191769477}

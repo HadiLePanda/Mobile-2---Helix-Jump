@@ -4,9 +4,13 @@ public class GameManager : MonoBehaviour
 {
     public static string PREF_HIGHSCORE = "Highscore";
 
+    [Header("Settings")]
+    [SerializeField] private int triesBeforeShowingAd = 3;
+
     private int highscore;
     private int score;
     private int currentStage = 0;
+    private int currentTriesBeforeAd = 0;
 
     public int HighScore => highscore;
     public int Score => score;
@@ -52,8 +56,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
 
-        // TODO: show adds
-        //Advertisement.Show();
+        // when we played a number of sessions, show ad
+        currentTriesBeforeAd++;
+        if (currentTriesBeforeAd >= triesBeforeShowingAd)
+        {
+            // show ad
+            AdsIntersital.singleton.ShowAd();
+            currentTriesBeforeAd = 0;
+        }
 
         RestartLevel();
     }
