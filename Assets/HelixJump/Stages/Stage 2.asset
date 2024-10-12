@@ -12,29 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39ad0607a6962340a68eb05ac8a5b48, type: 3}
   m_Name: Stage 2
   m_EditorClassIdentifier: 
-  stageBackgroundColor: {r: 0.24056602, g: 0.69600433, b: 1, a: 1}
-  stagePlatformPartColor: {r: 1, g: 0.88550174, b: 0, a: 1}
-  stageBallColor: {r: 0.26639125, g: 0.9622642, b: 0.15886435, a: 1}
+  stageBackgroundColor: {r: 0.78431374, g: 0.8117647, b: 0.627451, a: 1}
+  stagePlatformPartColor: {r: 0.47058824, g: 0.67058825, b: 0.65882355, a: 1}
+  stageBallColor: {r: 0.9372549, g: 0.6117647, b: 0.4, a: 1}
   platforms:
-  - partCount: 11
+  - partCount: 6
     deathPartCount: 0
-  - partCount: 10
-    deathPartCount: 0
-  - partCount: 9
-    deathPartCount: 2
-  - partCount: 11
+  - partCount: 7
     deathPartCount: 1
-  - partCount: 10
-    deathPartCount: 2
-  - partCount: 9
-    deathPartCount: 0
-  - partCount: 11
-    deathPartCount: 0
-  - partCount: 10
-    deathPartCount: 2
-  - partCount: 11
-    deathPartCount: 0
-  - partCount: 9
-    deathPartCount: 2
-  - partCount: 10
+  - partCount: 5
+    deathPartCount: 1
+  - partCount: 6
+    deathPartCount: 1
+  - partCount: 7
+    deathPartCount: 1
+  - partCount: 8
     deathPartCount: 1
