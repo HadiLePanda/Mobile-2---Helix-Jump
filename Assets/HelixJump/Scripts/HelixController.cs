@@ -10,8 +10,9 @@ public class HelixController : MonoBehaviour
     [Header("Settings")]
     public Transform topTransform;
     public Transform goalTransform;
-    public float helixRotationSpeedMultiplier = 0.8f;
+    public float helixRotationSpeedMultiplier = 0.4f;
 
+    private bool canControl = false;
     private Vector2 lastTapPos;
     private Vector2 startRotation;
     private float helixDistance;
@@ -28,34 +29,35 @@ public class HelixController : MonoBehaviour
         helixDistance = topTransform.localPosition.y - (goalTransform.localPosition.y + 0.1f);
     }
 
-    private void Start()
-    {
-        LoadStage(0);
-    }
-
     private void Update()
     {
         HandleHelixMovement();
     }
 
+    public void EnableControl() => canControl = true;
+    public void DisableControl() => canControl = false;
+
     private void HandleHelixMovement()
     {
-        // detect when touching the screen
-        if (Input.GetMouseButton(0))
+        if (canControl)
         {
-            Vector2 currentTapPos = Input.mousePosition;
-
-            // remember last tap position
-            if (lastTapPos == Vector2.zero)
+            // detect when touching the screen
+            if (Input.GetMouseButton(0))
             {
+                Vector2 currentTapPos = Input.mousePosition;
+
+                // remember last tap position
+                if (lastTapPos == Vector2.zero)
+                {
+                    lastTapPos = currentTapPos;
+                }
+
+                float delta = lastTapPos.x - currentTapPos.x;
                 lastTapPos = currentTapPos;
+
+                // make the helix rotate based on the touch movement
+                transform.Rotate(delta * helixRotationSpeedMultiplier * Vector3.up);
             }
-
-            float delta = lastTapPos.x - currentTapPos.x;
-            lastTapPos = currentTapPos;
-
-            // make the helix rotate
-            transform.Rotate(Vector3.up * delta * helixRotationSpeedMultiplier);
         }
 
         // stopped screen touch
@@ -65,20 +67,26 @@ public class HelixController : MonoBehaviour
         }
     }
 
-    public void LoadStage(int stageNumber)
+    public void LoadStage(int stageIndex)
     {
+        // if the stage is higher than the max number of stages, go back to first stage
+        if (stageIndex > stages.Count - 1)
+        {
+            stageIndex = 0;
+        }
+
         // get the stage
-        Stage stage = stages[Mathf.Clamp(stageNumber, 0, stages.Count - 1)];
+        Stage stage = stages[Mathf.Clamp(stageIndex, 0, stages.Count - 1)];
         if (stage == null)
         {
-            Debug.LogError("No stage " + stageNumber + " found in the stages list. Are all stages assigned in the list?");
+            Debug.LogError("No stage " + stageIndex + " found in the stages list. Are all stages assigned in the list?");
             return;
         }
 
         // change background color
-        Camera.main.backgroundColor = stage.stageBackgroundColor;
+        GameCamera.singleton.ChangeBackgroundColor(stage.stageBackgroundColor);
         // change ball color
-        BallController.singleton.meshRenderer.material.color = stage.stageBallColor;
+        BallController.singleton.ChangeColor(stage.stageBallColor);
 
         // reset helix rotation
         transform.localEulerAngles = startRotation;
@@ -91,7 +99,6 @@ public class HelixController : MonoBehaviour
 
         // create new platforms
         GeneratePlatforms(stage);
-        
     }
 
     private void GeneratePlatforms(Stage stage)

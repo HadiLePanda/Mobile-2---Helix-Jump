@@ -18,6 +18,7 @@ public class ScoreTrigger : MonoBehaviour
         // give points
         AddScore();
 
-        BallController.singleton.IncreasePerfectPass();
+        // trigger logic fo rball passing through a score trigger
+        BallController.singleton.OnPassedScoreTrigger();
     }
 }

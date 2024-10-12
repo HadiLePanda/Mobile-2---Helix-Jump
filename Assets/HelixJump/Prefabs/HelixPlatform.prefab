@@ -92,6 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7e216b54ed26b4992d5831fdaee39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 6638412559853049112, guid: 2ce17dadc72f84541a9e5a0becffe213, type: 3}
+  explosionSound: {fileID: 8300000, guid: 118d9681088309041818575b67ee0046, type: 3}
 --- !u!1001 &78580231949972205
 PrefabInstance:
   m_ObjectHideFlags: 0

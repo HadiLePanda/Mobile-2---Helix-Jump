@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39ad0607a6962340a68eb05ac8a5b48, type: 3}
   m_Name: Stage 3
   m_EditorClassIdentifier: 
-  stageBackgroundColor: {r: 1, g: 0.7319245, b: 0.23921567, a: 1}
+  stageBackgroundColor: {r: 0.8113208, g: 0.2852598, b: 0, a: 1}
   stagePlatformPartColor: {r: 1, g: 0.88550174, b: 0, a: 1}
   stageBallColor: {r: 0.16078433, g: 0.76216716, b: 0.9607843, a: 1}
   platforms:
   - partCount: 11
-    deathPartCount: 1
+    deathPartCount: 0
   - partCount: 10
     deathPartCount: 2
   - partCount: 10

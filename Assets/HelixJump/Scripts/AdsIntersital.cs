@@ -23,7 +23,7 @@ public class AdsIntersital : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShow
     public void LoadAd()
     {
         // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
-        Debug.Log("Loading Ad: " + _adUnitId);
+        //Debug.Log("Loading Ad: " + _adUnitId);
         Advertisement.Load(_adUnitId, this);
     }
 
@@ -31,7 +31,9 @@ public class AdsIntersital : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShow
     public void ShowAd()
     {
         // Note that if the ad content wasn't previously loaded, this method will fail
-        Debug.Log("Showing Ad: " + _adUnitId);
+        //Debug.Log("Showing Ad: " + _adUnitId);
+
+        // show the ad
         Advertisement.Show(_adUnitId, this);
     }
 
@@ -55,5 +57,8 @@ public class AdsIntersital : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShow
 
     public void OnUnityAdsShowStart(string _adUnitId) { }
     public void OnUnityAdsShowClick(string _adUnitId) { }
-    public void OnUnityAdsShowComplete(string _adUnitId, UnityAdsShowCompletionState showCompletionState) { }
+    public void OnUnityAdsShowComplete(string _adUnitId, UnityAdsShowCompletionState showCompletionState)
+    {
+        GameManager.singleton.UnpauseGame();
+    }
 }
